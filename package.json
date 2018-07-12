@@ -1,0 +1,38 @@
+{
+  "name": "github-release-downloader",
+  "version": "0.0.1",
+  "description": "A GitHub release asset downloader",
+  "main": "downloader.js",
+  "scripts": {
+    "test": "mocha",
+    "lint": "eslint downloader.js bin test"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "bin": {
+    "github-release-downloader": "bin/github-release-downloader"
+  },
+  "keywords": [
+    "github",
+    "asset",
+    "downloader"
+  ],
+  "author": "Lennard \"Fohlen\" Berger <lennard.berger@student.uni-tuebingen.de>",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^5.1.0",
+    "mocha": "^5.2.0",
+    "sinon": "^6.1.3"
+  },
+  "dependencies": {
+    "request": "^2.87.0",
+    "request-promise-native": "^1.0.5",
+    "semver": "^5.5.0"
+  },
+  "optionalDependencies": {
+    "progress": "^2.0.0",
+    "yargs": "^12.0.1"
+  }
+}

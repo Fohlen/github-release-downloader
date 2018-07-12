@@ -1,0 +1,84 @@
+#!/usr/bin/env node
+const os = require('os')
+const process = require('process')
+const releaseDownloader = require('../downloader')
+const argv = require('yargs') // eslint-disable-line
+    .command({
+        command: 'list <repo>',
+        desc: 'Lists release info for given repo',
+        builder: {
+            repo: {
+                type: 'string',
+                describe: 'the repository to look for'
+            }
+        },
+        handler: (argv) => {
+            releaseDownloader.getReleaseList(argv.repo).then((releases) => {
+                console.log(`Listing releases for repository ${argv.repo}`)
+                releases.forEach((release) => {
+                    console.log(release.tag_name)
+                })
+            }).catch((err) => {
+                console.error(`Failed to fetch releases for repository because of ${err}`)
+            })
+        }
+    })
+    .command({
+        command: 'detail <repo> [version]',
+        desc: 'Get specific information about a given repo and release',
+        builder: {
+            repo: {
+                type: 'string',
+                describe: 'the repository to look for'
+            },
+            version: {
+                type: 'string',
+                describe: 'the version to look up',
+                default: 'latest'
+            }
+        },
+        handler: (argv) => {
+            releaseDownloader.getReleaseByVersion(argv.repo, argv.version).then((release) => {
+                console.log(`Release name: ${release.tag_name}`)
+                console.log(`Publishing date: ${release.publish_date}`)
+            }).catch((err) => {
+                console.error(`Fetched to fail release info for repository because of ${err}`)
+            })
+        }
+    })
+    .command({
+        command: 'download <repo> [version] [platform] [arch]',
+        desc: 'Download a release for a given repo',
+        builder: {
+            repo: {
+                type: 'string',
+                describe: 'the repository to look for'
+            },
+            version: {
+                type: 'string',
+                describe: 'the version to look up',
+                default: 'latest'
+            },
+            dir: {
+                type: 'string',
+                describe: 'the directory to save the asset in',
+                default: process.cwd()
+            },
+            platform: {
+                type: 'string',
+                describe: 'the platform to download for',
+                default: os.platform()
+            },
+            arch: {
+                type: 'string',
+                describe: 'the arch to download for',
+                default: os.arch()
+            }
+        },
+        handler: (argv) => {
+
+        }
+    })
+    .demandCommand()
+    .help()
+    .argv
