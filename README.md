@@ -1,6 +1,8 @@
 github-release-downloader
 -------------------------
 
+[![Build Status](https://travis-ci.org/Fohlen/github-release-downloader.svg?branch=master)](https://travis-ci.org/Fohlen/github-release-downloader)
+
 A tiny Promise-compliant wrapper around [requests](https://github.com/request/request) to download release assets from [GitHub](https://github.com).
 I use [mocha](https://mochajs.org/), [eslint](https://eslint.org/) and [Travis](https://travis-ci.org/) for code quality. Also [jsdoc-to-markdown](https://www.npmjs.com/package/jsdoc-to-markdown) is a great help in creating this `README`.
 
