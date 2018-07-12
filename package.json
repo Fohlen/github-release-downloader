@@ -1,6 +1,6 @@
 {
   "name": "github-release-downloader",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A GitHub release asset downloader",
   "main": "downloader.js",
   "scripts": {
