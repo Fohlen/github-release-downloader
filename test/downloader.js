@@ -154,21 +154,21 @@ describe('downloadAsset', () => {
 })
 
 describe('progress', () => {
-    beforeEach(() => {
-        let mockStream = fs.createReadStream(path.join(__dirname, 'testfile.txt')) // eslint-disable-line no-undef
-        sinon.stub(request, 'get').returns(mockStream)
-    })
+	beforeEach(() => {
+		let mockStream = fs.createReadStream(path.join(__dirname, 'testfile.txt')) // eslint-disable-line no-undef
+		sinon.stub(request, 'get').returns(mockStream)
+	})
 
-    it('should download a file with a progress bar', function(done) {
-        let downloadCallback = sinon.spy()
-        releaseDownloader.downloadAsset('http://some.file/testfile.txt', 'testfile.txt', os.tmpdir(), downloadCallback).then((downloaded) => {
-            assert.equal(downloaded, path.join(os.tmpdir(), 'testfile.txt'))
-            expect(downloadCallback.callCount).to.be.at.least(1)
-            done()
-        })
-    })
+	it('should download a file with a progress bar', function(done) {
+		let downloadCallback = sinon.spy()
+		releaseDownloader.downloadAsset('http://some.file/testfile.txt', 'testfile.txt', os.tmpdir(), downloadCallback).then((downloaded) => {
+			assert.equal(downloaded, path.join(os.tmpdir(), 'testfile.txt'))
+			expect(downloadCallback.callCount).to.be.at.least(1)
+			done()
+		})
+	})
 
-    afterEach(() => {
-        request.get.restore()
-    })
+	afterEach(() => {
+		request.get.restore()
+	})
 })

@@ -5,7 +5,7 @@
   "main": "downloader.js",
   "scripts": {
     "test": "mocha",
-    "lint": "eslint downloader.js bin test"
+    "lint": "eslint downloader.js test bin/github-release-downloader"
   },
   "engines": {
     "node": ">=8"
