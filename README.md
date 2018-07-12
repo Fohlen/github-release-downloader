@@ -9,12 +9,12 @@ I use [mocha](https://mochajs.org/), [eslint](https://eslint.org/) and [Travis](
 # Get started
 To get started, simply install this module via (if you plan using it without progress or command line):
 ```
-npm i github-release-downloader --save --no-optional
+npm i @fohlen/github-release-downloader --save --no-optional
 ```
 
 Once that's done you can simply `require` the downloader in your code
 ```
-const releaseDownloader = require('github-release-downloader');
+const releaseDownloader = require('@fohlen/github-release-downloader');
 
 releaseDownloader.downloadByPlatformArch('inexorgame/inexor-core').then((downloaded) => {
     console.log(`Hooray! It downloaded my archive at ${downloaed}!`)
@@ -26,7 +26,7 @@ releaseDownloader.downloadByPlatformArch('inexorgame/inexor-core').then((downloa
 ### Command line
 You can also use this package as a small command-line wrapper to download stuff from GitHub.
 ```
-npm i github-release-downloader -g
+npm i @fohlen/github-release-downloader -g
 ```
 
 Then go ahead and enjoy the command line,

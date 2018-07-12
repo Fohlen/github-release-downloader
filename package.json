@@ -1,5 +1,5 @@
 {
-  "name": "github-release-downloader",
+  "name": "@fohlen/github-release-downloader",
   "version": "1.0.0",
   "description": "A GitHub release asset downloader",
   "main": "downloader.js",
@@ -13,6 +13,7 @@
   "bin": {
     "github-release-downloader": "bin/github-release-downloader"
   },
+  "repository": "https://github.com/Fohlen/github-release-downloader.git",
   "keywords": [
     "github",
     "asset",
